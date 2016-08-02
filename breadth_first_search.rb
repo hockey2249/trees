@@ -1,3 +1,5 @@
+
+
 ##
 # This class represents a tree
 # where each node has an array of children.
@@ -32,13 +34,29 @@ class Tree
     @children = []
   end
 
-  ##
-  # Searches through all nodes of the tree, spreading 
-  # outward from the root. Looks for any node with key equal
-  # to the +target_key+ param. Returns nil if no such node is found.
+# Breadth First Pseudo Code 
+#check if my_tree.key == target_key
+#if equal return my_tree
+#else add my_tree.children to the queue
+#while queue is not empty
+#    get first elelment in queue(current_element) and remove it from the queue
+#    check current_element.key == target_key
+#    if yes return current_element
+#    if no add current_element.children to the queue
+#end
+#if queue empty return nil not found
+
+
   def breadth_first_search(target_key)
-    nil
-  end
+      
+    queueArr = [ ]
+    my_tree = self.key
+    queueArr.unshift(my_tree)
+    puts queueArr
+    if my_tree === target_key
+      return my_tree
+    end
+    
 
 end
 
@@ -48,7 +66,6 @@ c_node = Tree.new('C')
 d_node = Tree.new('D')
 e_node = Tree.new('E')
 f_node = Tree.new('F')
-g_node = Tree.new('G')
 
 my_tree.children << b_node
 my_tree.children << c_node
